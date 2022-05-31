@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./styles.css"
+import { EditForm } from "./EditForm";
 
 export default function App() {
   const [todoList, setTodoList] = useState([]);
   const [todoText, setTodoText] = useState("");
-  const [onClickEdit, setOnClickEdit] = useState(false);
 
   const onChangeTodoText = (event) => setTodoText(event.target.value);
 
@@ -14,16 +14,16 @@ export default function App() {
     setTodoList(newTodos);
     setTodoText("");
   };
-  const taskChange = () => {
-    alert("");
-    todoText = "";
-  }
 
   const onClickDelete = (index) => {
     const newTodos = [...todoList];
     newTodos.splice(index, 1);
     setTodoList(newTodos);
   };
+
+  const onClickEdit = (index) => {
+    
+  }
 
   
   return (
@@ -50,24 +50,8 @@ export default function App() {
                     <option>未着手</option>
                     <option>完了</option>
                   </select>
-                  <button onClick={() => {setOnClickEdit(!onClickEdit)}}>編集</button>
+                  <button onClick={() => onClickEdit(index)}>編集</button>
                   <button onClick={() => onClickDelete(index)}>削除</button>
-                {onClickEdit? 
-                  <form onSubmit={(e) => e.preventDefault()}>
-                  <input
-                    type="text"
-                    value={todoText}
-                    placeholder="編集を入力"
-                    onChange={(e) => setTodoText(todo.index, e.target.value)}
-                  />
-                  <button
-                    type="submit" 
-                    onClick={taskChange}
-                    onSubmit={(e) => e.preventDefault()}
-                    >実行
-                  </button>
-                </form>
-                : null}
                 </div>
               );
             })}
