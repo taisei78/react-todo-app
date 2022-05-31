@@ -28,7 +28,7 @@ export default function App() {
   
   return (
     <div className="container">
-      <h1>TODO App</h1>
+      <h1>Todo App</h1>
       <div className="input-area">
           <input
             placeholder="TODOを入力"
@@ -39,7 +39,7 @@ export default function App() {
         </div>
 
         <div className="todo-list">
-          <p className="title">TODO  List</p>
+          <p className="title">Todo  List</p>
           <ul>
             {todoList.map((todo, index) => {
               return (
