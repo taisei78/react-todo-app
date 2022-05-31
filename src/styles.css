@@ -1,0 +1,89 @@
+body {
+  font-family: sans-serif;
+}
+h1 {
+  text-align: center;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  border: 1px solid rgb(107, 107, 107);
+  padding: 8px 10px;
+  font-size: 40px;
+}
+li {
+  list-style: none;
+  font-size: 20px;
+  border: 1px solid #fff;
+  padding: 1px 7px;
+}
+
+input {
+  border-radius: 16px;
+  border: none;
+  margin-right: 5px;
+  padding: 5px 10px;
+  outline: none;
+  border: 1px solid rgb(120, 120, 120);
+}
+
+button {
+  border-radius: 16px;
+  border: none;
+  padding: 4px 16px;
+}
+
+button:hover {
+  background-color: #ff7fff;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+li {
+  margin-right: 8px;
+}
+
+.input-area {
+  height: 30px;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 8px;
+  text-align: center;
+}
+
+.todo-list {
+  min-height: 300px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.title {
+  text-align: center;
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 20px;
+  color: #666;
+}
+
+.list-row {
+  display: flex;
+  align-items: center;
+  padding-bottom: 4px;
+  justify-content: center;
+}
+select {
+  font-size: 19px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  border: 1px solid rgba(184, 184, 184, 0.5);
+}
+select:hover {
+  cursor: pointer;
+  background:rgb(0, 0, 0);
+  color: white;
+  transition: 0.3s; 
+}
+select option[selected] {
+  background:red;
+}
