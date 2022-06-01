@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./styles.css"
-import { EditForm } from "./EditForm";
 
 export default function App() {
   const [todoList, setTodoList] = useState([]);
@@ -22,7 +21,6 @@ export default function App() {
   };
 
   const onClickEdit = (index) => {
-    
   }
 
   
@@ -44,7 +42,7 @@ export default function App() {
             {todoList.map((todo, index) => {
               return (
                 <div key={todo} className="list-row">
-                  <li>{todo}</li>
+                  <li>{todo}
                   <select name=''>
                     <option>着手</option>
                     <option>未着手</option>
@@ -52,6 +50,7 @@ export default function App() {
                   </select>
                   <button onClick={() => onClickEdit(index)}>編集</button>
                   <button onClick={() => onClickDelete(index)}>削除</button>
+                  </li>
                 </div>
               );
             })}
