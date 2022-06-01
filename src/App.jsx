@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./styles.css"
-import { Filter } from "./components/Filter";
-import { EditForm } from "./components/EditForm";
 import { InputTodo } from "./components/InputTodo";
 import { TodoList } from "./components/TodoList";
 
@@ -18,7 +16,6 @@ export default function App() {
     setTodoList(newTodos);
     setTodoText("");
   };
-  
 
   const onClickDelete = (index) => {
     const newTodos = [...todoList];
@@ -28,15 +25,11 @@ export default function App() {
 
   const onClickEdit = (index) => {
   }
-
-  
   return (
     <>
     <div className="container">
 
       <InputTodo todoText={todoText} onChange={onChangeTodoText} onClick={onClickAdd}/>
-      
-      <EditForm />
 
       <TodoList todoList={todoList} onClickEdit={onClickEdit} onClickDelete={onClickDelete} />
         
