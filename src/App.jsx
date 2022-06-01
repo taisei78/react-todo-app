@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./styles.css"
 import { Filter } from "./Filter";
 import { EditForm } from "./EditForm";
+import { InputTodo } from "./InputTodo";
 
 export default function App() {
   const [todoList, setTodoList] = useState([]);
@@ -32,14 +33,9 @@ export default function App() {
     <>
     <div className="container">
       <h1>Todo App</h1>
-      <div className="input-area">
-        <input
-          placeholder="TODOを入力"
-          value={todoText}
-          onChange={onChangeTodoText}
-        />
-        <button onClick={onClickAdd}>追加</button>
-        </div>
+      <InputTodo todoText={todoText} onChange={onChangeTodoText} onClick={onClickAdd}/>
+
+      
         <EditForm />
         <div className="todo-list">
           <p className="title">Todo  List</p>
