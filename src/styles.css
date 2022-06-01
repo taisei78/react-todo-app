@@ -40,12 +40,13 @@ button:hover {
 li {
   margin-right: 8px;
   min-width: 500px;
-  border: 1px solid rgb(120, 120, 120, 0.5);
+  border: 1px solid rgba(221, 221, 221, 0.7);
   padding: 10px 0px 10px 80px;
   border-radius: 16px;
   display: inline-block;
   margin-bottom: 10px;
   box-shadow: 10px 5px 5px rgb(124, 149, 247);
+  color: #656565;
 }
 
 .input-area {
@@ -67,7 +68,7 @@ li {
   text-align: center;
   margin-top: 0;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 30px;
   color: #666;
 }
 
