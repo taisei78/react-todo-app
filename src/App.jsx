@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./styles.css"
-import { Filter } from "./Filter";
-import { EditForm } from "./EditForm";
-import { InputTodo } from "./InputTodo";
+import { Filter } from "./components/Filter";
+import { EditForm } from "./components/EditForm";
+import { InputTodo } from "./components/InputTodo";
+import { TodoList } from "./components/TodoList";
 
 export default function App() {
   const [todoList, setTodoList] = useState([]);
@@ -32,29 +33,13 @@ export default function App() {
   return (
     <>
     <div className="container">
-      <h1>Todo App</h1>
-      <InputTodo todoText={todoText} onChange={onChangeTodoText} onClick={onClickAdd}/>
 
+      <InputTodo todoText={todoText} onChange={onChangeTodoText} onClick={onClickAdd}/>
       
-        <EditForm />
-        <div className="todo-list">
-          <p className="title">Todo  List</p>
-          <ul>
-            {todoList.map((todo, index) => {
-              return (
-                <div key={todo} className="list-row">
-                  <li>{todo}
-                  <select name=''>
-                    <Filter />
-                  </select>
-                  <button onClick={() => onClickEdit(index)}>編集</button>
-                  <button onClick={() => onClickDelete(index)}>削除</button>
-                  </li>
-                </div>
-              );
-            })}
-          </ul>
-        </div>
+      <EditForm />
+
+      <TodoList todoList={todoList} onClickEdit={onClickEdit} onClickDelete={onClickDelete} />
+        
     </div>
     </>
   )
