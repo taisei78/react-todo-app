@@ -9,8 +9,8 @@ export  const TodoList = (props) => {
         <ul>
           {todoList.map((todo, index) => {
             return (
-              <div key={todo} className="list-row">
-                <li>{todo}
+              <div key={index} className="list-row">
+                <li>ID:{index + 1}{todo}
                 <select name=''>
                   <Filter />
                 </select>
