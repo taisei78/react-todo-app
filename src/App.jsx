@@ -8,7 +8,6 @@ export default function App() {
   const [todoList, setTodoList] = useState([]);
   const [todoText, setTodoText] = useState("");
   const [isEditing, setIsEditing] = useState(false);
-  const [editingTodoIndex, setEditingTodoIndex] = useState();
   const [index, setIndex] = useState(0);
 
   const onChangeTodoText = (event) => setTodoText(event.target.value);
@@ -33,7 +32,7 @@ export default function App() {
   };
 
   const handleOnEdit = (todo) => {
-    //todoはeditFormで入力した文字です。
+    // todoはeditFormで入力した文字です。
     //editFromから入力された値をこちらの関数に持ってきて、setTodoListに入れます。
     //todoListの変更ですが、Reactのstateは直接変更ができないので一旦内容をコピーします（シャローコピーをしています）
     //コピーしたtodoListにtodoを入れて、最後にすべてのtodoをsetTodoLitにセットします
