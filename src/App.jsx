@@ -12,6 +12,7 @@ export default function App() {
 
   const onChangeTodoText = (event) => setTodoText(event.target.value);
 
+  
   const onClickAdd = () => {
     if (todoText === "") return;
     const newTodos = [...todoList, todoText];
