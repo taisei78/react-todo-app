@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import "./styles.css"
+import "./styles.css";
 import { InputTodo } from "./components/InputTodo";
 import { TodoList } from "./components/TodoList";
-import  EditForm  from "./components/EditForm";
+import EditForm from "./components/EditForm";
 
 export default function App() {
   const [todoList, setTodoList] = useState([]);
   const [todoText, setTodoText] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [editingTodoIndex, setEditingTodoIndex] = useState();
+  const [index, setIndex] = useState(0);
 
   const onChangeTodoText = (event) => setTodoText(event.target.value);
 
@@ -19,7 +20,6 @@ export default function App() {
     setTodoText("");
   };
 
-
   // 削除機能
   const onClickDelete = (index) => {
     const newTodos = [...todoList];
@@ -27,30 +27,50 @@ export default function App() {
     setTodoList(newTodos);
   };
 
-  const onClickEdit = () => {
+  const onClickEdit = (index) => {
     setIsEditing(true);
-  }
+    setIndex(index);
+  };
 
-  const handleOnEdit =() => {
+  const handleOnEdit = (todo) => {
+    //todoはeditFormで入力した文字です。
+    //editFromから入力された値をこちらの関数に持ってきて、setTodoListに入れます。
+    //todoListの変更ですが、Reactのstateは直接変更ができないので一旦内容をコピーします（シャローコピーをしています）
+    //コピーしたtodoListにtodoを入れて、最後にすべてのtodoをsetTodoLitにセットします
+    let tds = [...todoList];
+    tds[index] = todo;
+    setTodoList(tds);
     setIsEditing(false);
-  }
+  };
   return (
     <>
-    <div className="container">
-      {/* isEditingがtrueになるので右辺を返す。 */}
-      {!isEditing && <InputTodo todoText={todoText} onChange={onChangeTodoText} onClick={onClickAdd}/>}
+      <div className="container">
+        {!isEditing && (
+          <InputTodo
+            todoText={todoText}
+            onChange={onChangeTodoText}
+            onClick={onClickAdd}
+          />
+        )}
 
-      {!isEditing && <TodoList todoList={todoList} onClickEdit={onClickEdit} onClickDelete={onClickDelete} />} 
-      
-      {isEditing && (
-        <EditForm defaultValue={todoList[editingTodoIndex]} 
-        handleOnEdit={handleOnEdit}
-        onClickCancel={() => setIsEditing(false)}
-        />
-      )}
-    </div>
+        {!isEditing && (
+          <TodoList
+            todoList={todoList}
+            onClickEdit={onClickEdit}
+            onClickDelete={onClickDelete}
+            setTodoList={setTodoList}
+          />
+        )}
+
+        {isEditing && (
+          <EditForm
+            defaultValue={todoList[index]}
+            todoList={todoList}
+            handleOnEdit={handleOnEdit}
+            onClickCancel={() => setIsEditing(false)}
+          />
+        )}
+      </div>
     </>
-  )
+  );
 }
-
-

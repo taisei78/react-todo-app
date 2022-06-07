@@ -1,7 +1,12 @@
 import { useState } from "react";
 
-export default function EditForm({ onClickCancel, defaultValue, handleOnEdit }) {
+export default function EditForm({
+  onClickCancel,
+  defaultValue,
+  handleOnEdit,
+}) {
   const [todo, setTodo] = useState(defaultValue);
+
   return (
     <div>
       <button onClick={onClickCancel}>キャンセル</button>
@@ -10,7 +15,7 @@ export default function EditForm({ onClickCancel, defaultValue, handleOnEdit }) 
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
       />
-      <button onClick={handleOnEdit}>実行</button>
+      <button onClick={() => handleOnEdit(todo)}>実行</button>
     </div>
   );
 }
