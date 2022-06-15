@@ -36,12 +36,13 @@ export default function App() {
     // todoはeditFormで入力した文字です。
     //editFromから入力された値をこちらの関数に持ってきて、setTodoListに入れます。
     //todoListの変更ですが、Reactのstateは直接変更ができないので一旦内容をコピーします（シャローコピーをしています）
-    //コピーしたtodoListにtodoを入れて、最後にすべてのtodoをsetTodoLitにセットします
+    //コピーしたtodoListにtodoを入れて、最後にすべてのtodoをsetTodoListにセットします
     let tds = [...todoList];
     tds[index] = todo;
     setTodoList(tds);
     setIsEditing(false);
   };
+  
   return (
     <>
       <div className="container">

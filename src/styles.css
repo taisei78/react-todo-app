@@ -96,3 +96,8 @@ select option[selected] {
   background:red;
 }
 
+.edit-area {
+  text-align: center;
+  margin-top: 30px;
+}
+
